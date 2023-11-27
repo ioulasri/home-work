@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/imad/Documents/1337-cursus/printf/srcs",
-      "program": "/home/imad/Documents/1337-cursus/printf/srcs/build/Debug/outDebug",
+      "cwd": "/home/imad/Documents/1337-cursus/home-work/printf/srcs",
+      "program": "/home/imad/Documents/1337-cursus/home-work/printf/srcs/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -6,7 +6,7 @@
 /*   By: imoulasr <imad.oulasri@1337.student.ma>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:23:53 by imoulasr          #+#    #+#             */
-/*   Updated: 2023/11/17 11:29:04 by imoulasr         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:28:18 by imoulasr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ int	ft_puthex(unsigned long int n, int flag, char hex)
 	int	count;
 
 	count = 0;
-	if (flag && hex == 'x' && n)
+	if (flag == 1 && hex == 'x' && n)
 		count += write(1, "0x", 2);
-	else if (flag && hex == 'X' && n)
+	else if (flag == 1 && hex == 'X' && n)
 		count += write(1, "0X", 2);
 	if (hex == 'x')
 		ft_print_hexa(n, "0123456789abcdef");

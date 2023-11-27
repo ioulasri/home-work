@@ -6,23 +6,11 @@
 /*   By: imoulasr <imad.oulasri@1337.student.ma>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:43:03 by imoulasr          #+#    #+#             */
-/*   Updated: 2023/11/19 17:41:17 by imoulasr         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:45:26 by imoulasr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
-
-int	check_for_null(const char *format, int *count)
-{
-	int	i;
-
-	i = 0;
-	while (format[i] && format[i] == ' ')
-		i++;
-	if (!format[i])
-		return (1);
-	return (0);
-}
 
 void	print_argument(const char *format, va_list ap, int *counter, int flag)
 {
@@ -50,11 +38,20 @@ void	print_argument(const char *format, va_list ap, int *counter, int flag)
 	(void)flag;
 }
 
+void	ft_check_flags(const char **format, int *flag)
+{
+	while (**format == ' ' || **format == '+' || **format == '#')
+	{
+		*flag = 1;
+		if (**format == ' ')
+			*flag = 2;
+		(*format)++;
+	}
+}
 
 int	ft_printf(const char *format, ...)
 {
 	int		count;
-	int		occur;
 	int		flag;
 	va_list	ap;
 
@@ -65,17 +62,9 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (check_for_null(format, &count))
-				return (-1);
 			flag = 0;
-			while (*format == ' ' || *format == '+' || *format == '#')
-			{
-				if (*format == ' ')
-					flag = 2;
-				format++;
-			}
+			ft_check_flags(&format, &flag);
 			print_argument(format, ap, &count, flag);
-			occur = 1;
 		}
 		else
 			count += write(1, format, 1);
@@ -85,9 +74,3 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int main() {
-	// Example usage
-	ft_printf("%d\n", ft_printf("%     %         r          ", 34));
-	printf("%d\n", printf("%     %         r          ", 34));
-	return 0;
-}

@@ -6,7 +6,7 @@
 /*   By: imoulasr <imad.oulasri@1337.student.ma>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:21:05 by imoulasr          #+#    #+#             */
-/*   Updated: 2023/11/16 15:53:25 by imoulasr         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:27:46 by imoulasr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,22 @@ int	ft_putchar(char c)
 
 int	ft_numlen(int num)
 {
-	int	i;
+	int		i;
+	long	n;
 
+	n = num;
 	i = 0;
-	if (num < 0)
+	if (n < 0)
 	{
 		i++;
-		num = -num;
+		n = -n;
 	}
-	if (num == 0)
+	if (n == 0)
 		return (1);
-	while (num > 0)
+	while (n > 0)
 	{
 		i++;
-		num /= 10;
+		n /= 10;
 	}
 	return (i);
 }

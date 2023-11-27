@@ -14,6 +14,7 @@ all: $(NAME)
 
 clean:
 	$(RM) $(OBJS)
+	$(RM) a.out
 
 fclean: clean
 	$(RM) $(NAME)
