@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imoulasr <imad.oulasri@1337.student.ma>    +#+  +:+       +#+        */
+/*   By: imoulasr <imoulasr@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:43:03 by imoulasr          #+#    #+#             */
-/*   Updated: 2023/11/27 18:45:26 by imoulasr         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:49:14 by imoulasr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,9 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
+int main()
+{
+	printf("printf: %d\n", printf("%% %d %i %u %x %X %p %s %c\n", 42, 42, 42, 42, 42, "42", "42", '4'));
+	printf("ft_printf: %d\n", ft_printf("%% %d %i %u %x %X %p %s %c\n", 42, 42, 42, 42, 42, "42", "42", '4'));
+	return (0);
+}
